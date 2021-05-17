@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const countries = require('./countries.json');
-const { userValidationRules, validate } = require('./validator.js')
+const { body, validationResult } = require('express-validator');
+const { userValidationRules /*, validate*/ } = require('./validator.js')
 
 router.use(express.json());
 
@@ -34,8 +35,12 @@ router.get('/', (req, res) => {
 // BONUS: Do not accept the country if it already exists in the list; check both the alpha 2 code and the alpha 3 code for a match.
 
 
-router.post('/', userValidationRules(), validate, 
+router.post('/', userValidationRules(), 
          (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(400).send()
+      }
     const isNew = countries.find(e => e.alpha === req.body.alpha || e.alpha3Code === req.body.alpha3Code)
     if (!isNew){
     const newCountry = {
@@ -98,7 +103,11 @@ router.get('/:code', (req, res) => {
 // BONUS 2: Validate the data you receive before updating the country. 
 // Can you make it so that you use the same validation logic that for the POST route, without duplicating your code?
 
-router.put('/:code', userValidationRules(), validate, (req, res) => {
+router.put('/:code', userValidationRules(), (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(400).send()
+      }
     const requestCountry = countries.findIndex(element => element.alpha === req.params.code || element.alpha3Code === req.params.code)
     if (requestCountry !== -1) {
         Object.assign(countries[requestCountry], req.body)

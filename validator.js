@@ -8,15 +8,15 @@ const userValidationRules = () => {
   ]
 }
 
-const validate = (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).send();
-    }
-  }
+// const validate = (req, res) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//         res.status(400).send()
+//       }
+//   }
 
 
 module.exports = {
   userValidationRules,
-  validate,
+  //validate,
 }
