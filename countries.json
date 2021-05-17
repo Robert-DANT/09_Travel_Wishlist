@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Canada",
+        "alpha": "CA",
+        "alpha3Code": "CAN",
+        "visited": false
+    },
+    {
+        "id": 2,
+        "name": "France",
+        "alpha": "FR",
+        "alpha3Code": "FRA",
+        "visited": false
+    },
+    {
+        "id": 3,
+        "name": "China",
+        "alpha": "CN",
+        "alpha3Code": "CHN",
+        "visited": false
+    },
+    {
+        "id": 4,
+        "name": "Japan",
+        "alpha": "JP",
+        "alpha3Code": "JPN",
+        "visited": false
+    },
+    {
+        "id": 5,
+        "name": "United States",
+        "alpha": "US",
+        "alpha3Code": "USA",
+        "visited": false
+    }
+]

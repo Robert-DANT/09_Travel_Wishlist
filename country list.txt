@@ -1,0 +1,6 @@
+Country,   Alpha2, Alpha3, Numeric
+US       	US	USA	840
+Canada   	CA	CAN	124
+France     	FR	FRA	250
+Japan       JP	JPN	392
+China       CN	CHN 156
